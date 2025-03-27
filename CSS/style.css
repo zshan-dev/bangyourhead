@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: #444;
+    color: white;
+}
+.section {
+    padding: 40px 20px;
+    text-align: center;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.contact {
+    background: #ddd;
+    padding: 40px 20px;
+    text-align: center;
+}
+.contact input, .contact textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact button {
+    padding: 10px 20px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact button:hover {
+    background: #555;
+}
