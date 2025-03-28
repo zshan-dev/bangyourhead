@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Calendar</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        #calendar {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center">Booking Calendar</h2>
+    <div id="calendar"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var calendarEl = document.getElementById("calendar");
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: "dayGridMonth", // Default view
+                headerToolbar: {
+                    left: "prev,next today",
+                    center: "title",
+                    right: "dayGridMonth,timeGridWeek,timeGridDay",
+                },
+                editable: true, // Allow dragging events
+                selectable: true, // Enable date range selection
+
+                // Sample pre-booked events
+                events: [
+                    { title: "Meeting(placeholder)", start: "2025-03-28" },
+                    { title: "Conference(placeholder)", start: "2025-04-05" },
+                ],
+
+                // Click on a date
+                dateClick: function(info) {
+                    alert("You clicked on: " + info.dateStr);
+                },
+
+                // Click on an event
+                eventClick: function(info) {
+                    alert("You clicked on event: " + info.event.title);
+                },
+
+                // Dragging an event to a new date
+                eventDrop: function(info) {
+                    console.log("Event moved to: " + info.event.start.toISOString());
+                },
+
+                // Select multiple dates
+                select: function(info) {
+                    console.log("Selected from " + info.startStr + " to " + info.endStr);
+                }
+            });
+
+            calendar.render(); // Display the calendar
+        });
+    </script>
+</body>
+</html>
