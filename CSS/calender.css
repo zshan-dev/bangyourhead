@@ -2,7 +2,6 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
 }
 
 #serviceSelection {
@@ -10,8 +9,8 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -80%);
-    background: white;
+    transform: translate(-50%, -70%);
+    background: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -21,10 +20,10 @@ body {
 
 .service-option {
     display: block;
-    width: 100px;
+    width: 150px;
     margin: 10px auto;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #ff8c42;
     color: white;
     border: none;
     cursor: pointer;
@@ -33,6 +32,7 @@ body {
 
 #calendar {
     position: relative;
+    margin:10px;
 }
 
 /* Modal Styling */
@@ -50,7 +50,6 @@ body {
     z-index: 1000;
     min-width: 300px;
 }
-
 
 .remove::before {
     content: "";
@@ -81,4 +80,10 @@ body {
 #cancelRemove {
     background: rgb(0, 0, 0);
     color: white;
+}
+
+.fc-button {
+    background-color: #ff8c42 !important;
+    color: white !important;
+    border: none !important;
 }

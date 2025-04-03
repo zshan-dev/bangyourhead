@@ -9,16 +9,33 @@
     <link rel="stylesheet" href="CSS/calender.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
     <script src="JS/calender.js"></script>
+    <link rel="stylesheet" href="CSS/styling.css">
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="imgs/logo.png" alt="Bang Your Head Logo">
+            <h1>Bang Your Head</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="login.html" class="contact-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
     <h2 style="text-align: center">Booking Calendar</h2>
     <div id="calendar"></div>
 
     <div id="serviceSelection">
         <h2>Select a Service</h2>
-        <button class="service-option" data-service="Service 1">Service 1</button>
-        <button class="service-option" data-service="Service 2">Service 2</button>
-        <button class="service-option" data-service="Service 3">Service 3</button>
+        <button class="service-option" services="Window Washing">Window Washing</button>
+        <button class="service-option" services="Fence restoration">Fence restoration</button>
+        <button class="service-option" services="Power Washing">Power Washing</button>
+        <button class="service-option" services="Weed Removal">Weed Removal</button>
+        <button class="service-option" services="Gutter cleaning">Gutter cleaning</button>
     </div>
 
 

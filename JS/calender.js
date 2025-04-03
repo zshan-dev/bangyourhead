@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let cancelRemoveBtn = document.getElementById("cancelRemove");
 
     let selectedDate = null;
-    let eventToRemove = null; // Store the event to remove
+    let removeService = null; // Store the event to remove
 
     let calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: "dayGridMonth",
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Click event → Show removal modal
         eventClick: function(info) {
-            eventToRemove = info.event; // Store event
+            removeService = info.event; // Store event
             removeEventModal.style.display = "block";
         }
     });
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button.addEventListener("click", function() {
             if (selectedDate) {
                 calendar.addEvent({
-                    title: this.getAttribute("data-service"),
+                    title: this.getAttribute("services"),
                     start: selectedDate
                 });
                 serviceSelection.style.display = "none";
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Confirm Remove Event
     confirmRemoveBtn.addEventListener("click", function() {
-        if (eventToRemove) {
-            eventToRemove.remove();
-            eventToRemove = null;
+        if (removeService) {
+            removeService.remove();
+            removeService = null;
             removeEventModal.style.display = "none";
         }
     });
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cancel Removal
     cancelRemoveBtn.addEventListener("click", function() {
         removeEventModal.style.display = "none";
-        eventToRemove = null;
+        removeService = null;
     });
 
     // Close modals when clicking outside

@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
 
                 // Redirect to index.html after 2 seconds
                 setTimeout(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "calander.html";
                 }, 2000);
             } else {
                 showMessage("Invalid username or password.", "red");
