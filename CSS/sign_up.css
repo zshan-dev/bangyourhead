@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.contact-btn {
+    background-color: #ff8c42;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    background-color: #e67336;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+}
+
+.sign-up-section {
+    background: linear-gradient(to right, #ffffff, #f8f8f8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.sign-up-box {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 700px;
+    margin: 20px;
+}
+
+.sign-up-box h2 {
+    color: #333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 1.4rem;
+    margin-left: 0.3rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.sign-up-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.warning {
+    max-width: 27ch;
+    margin-top: 0.4rem;
+    color: red;
+    font-size: 0.9rem;
+}
+
+.warning-hidden {
+    display: none;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.sign-up-btn {
+    padding: 10px 20px;
+    background: #ff8c42;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3rem;
+    transition: 0.3s ease-in-out;
+}
+
+.sign-up-btn:hover {
+    background: #e67336;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: auto;
+}
+
+footer p {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    color: snow;
+    text-transform: uppercase;
+}
+
+footer a {
+    padding: 0.3rem;
+    font-size: 1rem;
+    color: #e67336;
+    transition: opacity 0.2s;
+}
+
+footer a:active {
+    opacity: 0.7;
+}

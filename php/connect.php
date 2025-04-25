@@ -9,7 +9,7 @@
 try {
     $dbh = new PDO(
         "mysql:host=localhost;dbname=bombaywz_db",
-        "bombaywz_local",
+        "root",
         ""
     );
 } catch (Exception $e) {

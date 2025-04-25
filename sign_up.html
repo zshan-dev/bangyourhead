@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="This is the login page of this website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mahdi Ahangari">
+    <title>Log In</title>
+    <link rel="stylesheet" href="css/sign_up.css">
+    <script src="js/sign_up.js" defer></script>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="logo">
+                <img src="imgs/logo.png" alt="Bang Your Head Logo">
+                <h1>Bang Your Head</h1>
+            </div>
+            <nav aria-label="primary-navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#" class="contact-btn">Login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="sign-up-section">
+            <div class="sign-up-box">
+                <h2>Sign Up!</h2>
+                <form>
+                    <div class="input-container">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" name="fullName" id="fullName" placeholder="Your Full Name">
+                        <p class="warning warning-hidden">Invalid Name!</p>
+                    </div>
+
+                    <div class="input-container" id="emailContainer">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" id="email" placeholder="Your Email" minlength="5">
+                        <p class="warning warning-hidden">Invalid Email!</p>
+                    </div>
+
+                    <div class="input-container" id="passwordContainer">
+                        <label for="password">Password:</label>
+                        <input type="password" name="password" id="password" placeholder="Your Password">
+                        <p class="warning warning-hidden">
+                            Password must be 8–32 chars, with at least one uppercase, lowercase,
+                            number, and special char (e.g., !, @, #, $).
+                        </p>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="Your Phone Number">
+                        <p class="warning warning-hidden">Phone Number should be in the format of xxx-xxx-xxxx</p>
+                    </div>
+
+                    <div class="input-container">
+                        <label for="address">Address:</label>
+                        <input type="text" name="address" id="address" placeholder="Your Address">
+                        <p class="warning warning-hidden">Invalid Address</p>
+                    </div>
+
+                    <div class="btn-container">
+                        <button class="sign-up-btn" type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy;2025 Bang Your Head. All rights reserved</p>
+            <p id="advertisement">Website created by <a href="#">FZMS</a></p>
+        </footer>
+    </div>
+</body>
+</html>
