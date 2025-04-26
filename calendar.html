@@ -10,7 +10,6 @@
     <script src="js/calender.js"></script>
     <link rel="stylesheet" href="css/calender.css">
     <link rel="stylesheet" href="css/login.css">
-
 </head>
 <body>
     <header>
@@ -21,11 +20,19 @@
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="login.html" class = "contact-btn"> Login</a></li>
+                <li class="user-dropdown">
+                    <div class="user-info">
+                        <span id="userName">Loading...</span>
+                        <i class="arrow-down"></i>
+                    </div>
+                    <div class="dropdown-content">
+                        <a href="#" id="logoutBtn">Logout</a>
+                    </div>
+                </li>
             </ul>
         </nav>
     </header>
-    <h2 style="text-align: center">Booking Calendar</h2>
+    <h2 class="page-title">Booking Calendar</h2>
     <div id="calendar"></div>
 
     <div id="serviceSelection">
@@ -37,7 +44,6 @@
         <button class="service-option" services="Gutter cleaning">Gutter cleaning</button>
     </div>
 
-
     <div id="removeEventModal" class="remove">
         <div class="modal-content">
             <h2>Remove Service</h2>
@@ -46,5 +52,52 @@
             <button id="cancelRemove">Cancel</button>
         </div>
     </div>
+
+    <script>
+        // Check session and update UI
+        fetch('php/check_session.php')
+            .then(response => response.json())
+            .then(data => {
+                if (!data.loggedIn) {
+                    window.location.href = 'login.html';
+                    return;
+                }
+                document.getElementById('userName').textContent = data.firstName;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                window.location.href = 'login.html';
+            });
+
+        // Toggle dropdown
+        document.querySelector('.user-info').addEventListener('click', function() {
+            document.querySelector('.dropdown-content').classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.user-info') && !event.target.matches('.arrow-down')) {
+                const dropdowns = document.getElementsByClassName('dropdown-content');
+                for (const dropdown of dropdowns) {
+                    if (dropdown.classList.contains('show')) {
+                        dropdown.classList.remove('show');
+                    }
+                }
+            }
+        });
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            fetch('php/logout.php')
+                .then(response => response.json())
+                .then(data => {
+                    window.location.href = 'login.html';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+    </script>
 </body>
 </html>

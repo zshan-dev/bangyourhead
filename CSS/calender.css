@@ -1,41 +1,151 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #f5f5f5;
 }
 
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333333;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    color: #333333;
+    gap: 8px;
+}
+
+.arrow-down {
+    border: solid #333333;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-top: -2px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    color: #333333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+}
+
+.show {
+    display: block;
+}
+
+/* Calendar Container */
+#calendar {
+    position: relative;
+    margin: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Selection Modal */
 #serviceSelection {
     display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -70%);
-    background: rgb(255, 255, 255);
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
-    z-index: 1000; /* Ensures it appears on top */
+    z-index: 1000;
+    min-width: 300px;
 }
 
 .service-option {
     display: block;
-    width: 150px;
-    margin: 10px auto;
-    padding: 10px;
+    width: 200px;
+    margin: 15px auto;
+    padding: 12px;
     background-color: #ff8c42;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
 }
 
-#calendar {
-    position: relative;
-    margin:10px;
+.service-option:hover {
+    background-color: #ff7a2b;
 }
 
-/* Modal Styling */
+/* Remove Appointment Modal */
 .remove {
     display: none;
     position: fixed;
@@ -43,9 +153,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     text-align: center;
     z-index: 1000;
     min-width: 300px;
@@ -58,32 +168,95 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: -1;
-    border-radius: 10px;
 }
 
-/* Buttons */
-.remove button {
-    margin: 10px;
-    padding: 10px 15px;
+/* Modal Buttons */
+.danger-btn {
+    background-color: #ff4444;
+    color: white;
     border: none;
-    cursor: pointer;
+    padding: 10px 20px;
     border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
 }
 
-#confirmRemove {
-    background: red;
+.danger-btn:hover {
+    background-color: #ff2222;
+}
+
+.secondary-btn {
+    background-color: #666666;
     color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s;
 }
 
-#cancelRemove {
-    background: rgb(0, 0, 0);
-    color: white;
+.secondary-btn:hover {
+    background-color: #555555;
 }
 
+.modal-content {
+    padding: 20px;
+}
+
+.modal-content h2 {
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    color: #666666;
+}
+
+.modal-content strong {
+    color: #333333;
+}
+
+/* FullCalendar Custom Styles */
 .fc-button {
     background-color: #ff8c42 !important;
     color: white !important;
     border: none !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    transition: background-color 0.3s !important;
+}
+
+.fc-button:hover {
+    background-color: #ff7a2b !important;
+}
+
+.fc-today-button {
+    text-transform: capitalize !important;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5em !important;
+    color: #333333 !important;
+}
+
+.fc-day-header {
+    background-color: #f8f9fa !important;
+    padding: 10px 0 !important;
+}
+
+.fc-event {
+    border: none !important;
+    padding: 2px 5px !important;
+    border-radius: 3px !important;
+}
+
+.page-title {
+    text-align: center;
+    margin: 20px 0;
+    color: #333333;
 }
