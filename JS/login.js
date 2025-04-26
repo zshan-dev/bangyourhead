@@ -4,33 +4,29 @@ window.addEventListener("load", function () {
     signin.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default form submission
 
-        let username = document.getElementById("username").value.trim();
-        let password = document.getElementById("password").value.trim();
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
 
-        if (!username || !password) {
+        if (!email || !password) {
             showMessage("Please fill in both fields.", "red");
             return;
         }
 
         let formData = new FormData();
-        formData.append("username", username);
+        formData.append("email", email);
         formData.append("password", password);
 
         fetch("php/login.php", {
             method: "POST",
             body: formData
         })
-        .then(response => response.text())
+        .then(response => response.json())
         .then(data => {
-            if (data.includes("successful")) {
-                showMessage("Login successful! Redirecting...", "green");
-
-                // Redirect to index.html after 2 seconds
+            showMessage(data.message, data.success ? "green" : "red");
+            if (data.success) {
                 setTimeout(() => {
-                    window.location.href = "calander.html";
-                }, 2000);
-            } else {
-                showMessage("Invalid username or password.", "red");
+                    window.location.href = data.redirect;
+                }, 1000);
             }
         })
         .catch(error => {

@@ -49,8 +49,8 @@ const validateSignUp = (form) =>{
             phoneNumber.nextElementSibling.classList.add("warning-hidden");
         }
 
-        //validate password
-        if(!(/^(?=.*?[0-9])(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[^0-9A-Za-z]).{8,32}$/.test(password.value))){
+        //validate password - simplified to just check length
+        if(password.value.length < 3){
             password.nextElementSibling.classList.remove("warning-hidden");
             formIsNotValid = true;
         }

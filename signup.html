@@ -18,10 +18,8 @@
             </div>
             <nav aria-label="primary-navigation">
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#" class="contact-btn">Login</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html" class = "contact-btn">Login</a></li>
                 </ul>
             </nav>
         </header>
@@ -29,7 +27,7 @@
         <main class="sign-up-section">
             <div class="sign-up-box">
                 <h2>Sign Up!</h2>
-                <form>
+                <form action="php/register_user.php" method="POST">
                     <div class="input-container">
                         <label for="fullName">Full Name:</label>
                         <input type="text" name="fullName" id="fullName" placeholder="Your Full Name">
@@ -46,8 +44,7 @@
                         <label for="password">Password:</label>
                         <input type="password" name="password" id="password" placeholder="Your Password">
                         <p class="warning warning-hidden">
-                            Password must be 8–32 chars, with at least one uppercase, lowercase,
-                            number, and special char (e.g., !, @, #, $).
+                            Password must be at least 3 characters long.
                         </p>
                     </div>
 
