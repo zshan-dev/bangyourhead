@@ -1,3 +1,34 @@
+/**
+ * Booking Cancellation Handler
+ * 
+ * @author Your Name (Your Student Number)
+ * @date 2024-04-25
+ * 
+ * Handles service booking cancellation:
+ * - Validates user authentication
+ * - Verifies booking ownership/admin rights
+ * - Removes booking from database
+ * 
+ * Expected JSON input:
+ * {
+ *   booking_id: number
+ * }
+ * 
+ * @return JSON Response with format:
+ * {
+ *   success?: boolean,
+ *   error?: string
+ * }
+ * 
+ * HTTP Status Codes:
+ * - 200: Success
+ * - 400: Invalid booking ID
+ * - 401: Not logged in
+ * - 403: Not authorized
+ * - 404: Booking not found
+ * - 500: Database error
+ */
+
 <?php
 session_start();
 require_once 'connect.php';
@@ -9,8 +40,8 @@ if (!isset($_SESSION['email'])) {
     exit();
 }
 
-// Get booking ID from POST data
-$data = json_decode(file_get_contents('php/input'), true);
+// Get and validate booking ID from POST data
+$data = json_decode(file_get_contents('php://input'), true);
 $booking_id = $data['booking_id'] ?? null;
 
 if (!$booking_id) {
@@ -21,9 +52,9 @@ if (!$booking_id) {
 
 try {
     // Get booking details to check permissions
-    $stmt = $dbh->prepare("SELECT user_id, users.email as booker_email 
-                          FROM bookings 
-                          JOIN users ON bookings.user_id = users.id 
+    $stmt = $dbh->prepare("SELECT bookings.*, users.email as booker_email
+                          FROM bookings
+                          JOIN users ON bookings.user_email = users.email
                           WHERE bookings.id = ?");
     $stmt->execute([$booking_id]);
     $booking = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,12 +66,13 @@ try {
     }
 
     // Check if user has permission to cancel
-    if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] != 1) {
-        if ($_SESSION['email'] !== $booking['booker_email']) {
-            http_response_code(403);
-            echo json_encode(['error' => 'Not authorized to cancel this booking']);
-            exit();
-        }
+    $is_admin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] == 1;
+    $is_owner = $_SESSION['email'] === $booking['booker_email'];
+    
+    if (!$is_admin && !$is_owner) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Not authorized to cancel this booking']);
+        exit();
     }
 
     // Delete the booking

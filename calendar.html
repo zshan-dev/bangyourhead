@@ -10,6 +10,8 @@
     <script src="js/calender.js"></script>
     <link rel="stylesheet" href="css/calender.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/modal.css">
+
 </head>
 <body>
     <header>
@@ -44,12 +46,8 @@
         <button class="service-option" services="Gutter cleaning">Gutter cleaning</button>
     </div>
 
-    <div id="removeEventModal" class="remove">
+    <div id="removeEventModal" class="modal">
         <div class="modal-content">
-            <h2>Remove Service</h2>
-            <p>Are you sure you want to remove this service?</p>
-            <button id="confirmRemove">Yes, Remove</button>
-            <button id="cancelRemove">Cancel</button>
         </div>
     </div>
 
@@ -98,6 +96,9 @@
                     console.error('Error:', error);
                 });
         });
+
+        let confirmRemoveBtn = document.getElementById("confirmRemove");
+        let cancelRemoveBtn = document.getElementById("cancelRemove");
     </script>
 </body>
 </html>

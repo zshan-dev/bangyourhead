@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
@@ -107,42 +110,80 @@ nav ul li a {
     color: #ff8c42;
 }
 
+.book-now {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 180px); /* Subtract header and footer height */
+    padding: 20px 50px;
+}
+
+.book-now h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.book-now p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 2rem;
+    max-width: 600px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 30px;
     padding-top: 20px;
-    max-width: 800px;
-    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .grid-box {
     background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.grid-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .grid-box h3 {
     color: #ff8c42;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.grid-box p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #555;
 }
 
 .book-btn {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
+    padding: 12px 30px;
     background-color: #ff8c42;
     color: white;
     font-weight: bold;
-    border-radius: 5px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     text-decoration: none;
-    transition: background 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .book-btn:hover {
     background-color: #e67336;
+    transform: scale(1.05);
 }
 
 /* Footer */
@@ -151,7 +192,6 @@ footer {
     padding: 20px;
     background-color: #333;
     color: white;
-    margin-top: 50px;
 }
 
 .socials {
@@ -170,4 +210,38 @@ footer {
 
 .socials a:hover img {
     transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        padding: 0 20px;
+    }
+
+    .book-now {
+        padding: 30px 20px;
+    }
+
+    .book-now h2 {
+        font-size: 2rem;
+    }
+
+    .grid-box {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    .book-now h2 {
+        font-size: 1.8rem;
+    }
+
+    .book-now p {
+        font-size: 1rem;
+    }
 }

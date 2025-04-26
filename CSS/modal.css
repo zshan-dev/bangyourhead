@@ -1,0 +1,205 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid #e1e1e1;
+}
+
+.booking-details {
+    padding: 20px;
+}
+
+.booking-details h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.details-grid {
+    display: grid;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.details-grid p {
+    margin: 0;
+    font-size: 16px;
+    color: #34495e;
+}
+
+.details-grid strong {
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-group input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e07c2a;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #2c3e50;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="time"]:focus {
+    outline: none;
+    border-color: #e07c2a;
+    box-shadow: 0 0 0 3px rgba(224, 124, 42, 0.2);
+}
+
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 4px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e07c2a;
+    border-radius: 6px;
+    font-size: 18px;
+    color: #2c3e50;
+    background-color: #ffffff;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23e07c2a%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 40px;
+    transition: all 0.3s ease;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #c86a1f;
+    box-shadow: 0 0 0 3px rgba(224, 124, 42, 0.2);
+}
+
+.form-group select option {
+    padding: 12px;
+    font-size: 16px;
+}
+
+.form-group select option:disabled {
+    color: #95a5a6;
+    background-color: #f5f6fa;
+    font-style: italic;
+}
+
+.service-buttons {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.service-option {
+    background-color: #e07c2a;
+    color: white;
+}
+
+.service-option:hover {
+    background-color: #c86a1f;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.danger-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.danger-btn:hover {
+    background-color: #c0392b;
+}
+
+.secondary-btn {
+    background-color: #95a5a6;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background-color: #7f8c8d;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+.feedback-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.feedback-message.error {
+    background-color: #fde8e8;
+    color: #e74c3c;
+    border: 1px solid #fbd5d5;
+}
+
+.feedback-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+}
+
+.feedback-message.pending {
+    background-color: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+} 

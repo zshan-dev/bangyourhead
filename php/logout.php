@@ -1,3 +1,13 @@
+/**
+ * Logout Handler
+ * 
+ * @author Your Name (Your Student Number)
+ * @date 2024-04-25
+ * 
+ * Handles user logout by destroying the current session
+ * and returning a JSON response confirming successful logout.
+ */
+
 <?php
 session_start();
 session_destroy();
